@@ -18,9 +18,9 @@ import {
 } from '@mui/icons-material';
 
 import { LogoNavBar } from './components';
-import logo from '../../../../Images/logo.png';
+import logo from 'Images/logo.png';
 
-import theme from '../../../../Styles/theme';
+import { theme } from 'Styles/theme';
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);

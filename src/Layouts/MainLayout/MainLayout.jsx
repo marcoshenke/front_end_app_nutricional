@@ -1,14 +1,15 @@
-import { Paper, Container } from '@mui/material';
+import { Paper, Box } from '@mui/material';
 import PropTypes from 'prop-types';
+import { StyledContainer } from 'components';
 
 import { NavBar } from './components';
 
 const MainLayout = ({ children }) => {
   return (
-    <Container>
+    <StyledContainer>
       <NavBar />
       <Paper>{children}</Paper>
-    </Container>
+    </StyledContainer>
   );
 };
 

@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   colors: {
     primaryColor: '#ABBF15',
     secondaryColor: '#F2B705',
@@ -34,5 +34,3 @@ const theme = {
     xhuge: '6.4rem',
   },
 };
-
-export default theme;
