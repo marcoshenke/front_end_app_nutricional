@@ -1,3 +1,5 @@
 import { StyledPaper } from './StyledPaper';
+import { Login } from './Login';
+import { Register } from './Register';
 
-export { StyledPaper };
+export { Login, Register, StyledPaper };

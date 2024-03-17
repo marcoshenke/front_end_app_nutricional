@@ -1,20 +1,58 @@
+import { Box, Typography, colors } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import { MainLayout } from 'Layouts';
-import { Box, Paper, Typography } from '@mui/material';
-import { StyledPaper } from './components';
+
+import { StyledPaper, Login, Register } from './components';
+
+import { HomeSchema } from './schema';
 
 const Home = () => {
+  const { control, error, handleSubmit } = useForm({
+    resolver: yupResolver(HomeSchema),
+  });
+
   return (
     <MainLayout>
       <StyledPaper>
-        <Typography variant="h3">
-          Seja Bem-vindo(a) ao aplicativo que vai mudar sua saúde para melhor!
-        </Typography>
-        <Typography variant="h3">Faça o login ou se cadastre </Typography>
-        <Box>
-          <Typography>Fazer Login</Typography>
-        </Box>
-        <Box>
-          <Typography>Cadastrar</Typography>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          width="100%"
+        >
+          <Box bgcolor={colors.yellow[400]} borderRadius={2} padding={2}>
+            <Typography variant="h3" fontWeight={700}>
+              O aplicativo que vai transformar sua saúde!
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            mt={5}
+            bgcolor={colors.yellow[400]}
+            borderRadius={2}
+            justifyContent="center"
+            alignItems="center"
+            padding={2}
+            width="50%"
+          >
+            <Typography variant="h4">Faça o login ou cadastre-se </Typography>
+            <Box display="flex" flexDirection="row" gap={5} mt={2}>
+              <Login
+                control={control}
+                error={error}
+                handleSubmit={handleSubmit}
+              />
+              <Register
+                control={control}
+                error={error}
+                handleSubmit={handleSubmit}
+              />
+            </Box>
+          </Box>
         </Box>
       </StyledPaper>
     </MainLayout>

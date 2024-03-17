@@ -1,8 +1,14 @@
-export const theme = {
-  colors: {
-    primaryColor: '#ABBF15',
-    secondaryColor: '#F2B705',
-    tertiaryColor: '#F28705',
+import { createTheme } from '@mui/material/styles';
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ABBF15',
+    },
+    secondary: {
+      main: '#F2B705',
+    },
+    tertiary: { main: '#F28705' },
   },
   font: {
     family: {
@@ -33,4 +39,4 @@ export const theme = {
     huge: '5.6rem',
     xhuge: '6.4rem',
   },
-};
+});

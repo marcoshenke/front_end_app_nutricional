@@ -45,7 +45,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" style={{ background: theme.colors.primaryColor }}>
+    <AppBar position="static" style={{ background: theme.palette.primary }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

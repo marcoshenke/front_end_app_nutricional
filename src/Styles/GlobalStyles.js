@@ -1,42 +1,30 @@
-import { createGlobalStyle } from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CssBaseline, createTheme, GlobalStyles } from '@mui/material';
 
-export const GlobalStyles = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+const globalTheme = createTheme((theme) => ({
+  '@global': {
+    /* Estilos globais aqui */
+    body: {
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Defina a fonte global
+      margin: 0, // Remove margens padrão
+      padding: 0, // Remove preenchimentos padrão
+      boxSizing: 'border-box', // Garante que a largura e a altura incluam o preenchimento e a borda, mas não a margem
+    },
+    // Adicione mais estilos globais conforme necessário
+  },
+}));
 
-  html {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-  }
+export const GlobalStylesTheme = ({ children }) => {
+  return (
+    <>
+      <GlobalStyles styles={globalTheme} />
+      <CssBaseline /> {/* Reseta os estilos padrão do navegador */}
+      {children}
+    </>
+  );
+};
 
-  body {
-    font-size: 1.6rem;
-    font-family: ${({ theme }) => theme.font.family.default};
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: ${({ theme }) => theme.font.family.secondary};
-    margin: ${({ theme }) => theme.spacings.large} 0;
-  }
-
-  p {
-    margin: ${({ theme }) => theme.spacings.medium} 0;
-  }
-
-  ul, ol {
-    margin: ${({ theme }) => theme.spacings.medium};
-    padding: ${({ theme }) => theme.spacings.medium};
-  }
-
-  a {
-    color: ${({ theme }) => theme.colors.secondaryColor};
-  }
-
-  .table {
-    width: 100%;
-    overflow-y: auto;
-  }
-`;
+GlobalStylesTheme.propTypes = {
+  children: PropTypes.element,
+};
