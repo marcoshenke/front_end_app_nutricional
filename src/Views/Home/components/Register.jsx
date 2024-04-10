@@ -52,7 +52,7 @@ export const Register = ({ control }) => {
         )}
         name="username"
       />
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="secondary">
         cadastrar
       </Button>
     </Box>

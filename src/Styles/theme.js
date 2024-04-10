@@ -3,17 +3,16 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#ABBF15',
+      main: '#E3DB3D',
     },
     secondary: {
-      main: '#F2B705',
+      main: '#74E33D',
     },
-    tertiary: { main: '#F28705' },
+    tertiary: { main: '#E3C73D' },
   },
   font: {
     family: {
-      default: "'Open Sans', sans-serif",
-      secondary: "'Montserrat', sans-serif",
+      default: "'Roboto', sans-serif",
     },
     sizes: {
       xsmall: '8rem',

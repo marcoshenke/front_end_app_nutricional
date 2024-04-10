@@ -39,7 +39,7 @@ export const Login = ({ control }) => {
         )}
         name="password"
       />
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="secondary">
         login
       </Button>
     </Box>

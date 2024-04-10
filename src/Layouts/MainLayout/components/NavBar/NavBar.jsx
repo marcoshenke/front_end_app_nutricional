@@ -21,12 +21,17 @@ import { LogoNavBar } from './components';
 import logo from 'Images/logo.png';
 
 import { theme } from 'Styles/theme';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const pages = ['Home', 'Comparador de alimentos', 'Blog'];
+  const pages = [
+    { menuItem: 'Home', path: '/' },
+    { menuItem: "'Comparar alimentos'", path: '/compare-foods' },
+    { menuItem: 'Blog', path: '/blog' },
+  ];
   const settings = ['Perfil', 'Conta', 'Logout'];
 
   const handleOpenNavMenu = (event) => {
@@ -78,10 +83,8 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" variant="body2">
-                    {page}
-                  </Typography>
+                <MenuItem key={page.path}>
+                  <Link to={page.path}>{page.menuItem}</Link>
                 </MenuItem>
               ))}
             </Menu>
