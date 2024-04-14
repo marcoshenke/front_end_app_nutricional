@@ -17,11 +17,12 @@ import {
   ManageAccounts as ManageAccountsIcon,
 } from '@mui/icons-material';
 
+import { StyledLink } from 'components';
+
 import { LogoNavBar } from './components';
 import logo from 'Images/logo.png';
 
 import { theme } from 'Styles/theme';
-import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -29,7 +30,7 @@ const NavBar = () => {
 
   const pages = [
     { menuItem: 'Home', path: '/' },
-    { menuItem: "'Comparar alimentos'", path: '/compare-foods' },
+    { menuItem: 'Comparar alimentos', path: '/compare-foods' },
     { menuItem: 'Blog', path: '/blog' },
   ];
   const settings = ['Perfil', 'Conta', 'Logout'];
@@ -84,7 +85,7 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.path}>
-                  <Link to={page.path}>{page.menuItem}</Link>
+                  <StyledLink to={page.path}>{page.menuItem}</StyledLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -104,12 +105,12 @@ const NavBar = () => {
             <LogoNavBar src={logo} />
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.path}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <Typography fontWeight={700} variant="h6">
-                  {page}
+                  <StyledLink to={page.path}>{page.menuItem}</StyledLink>
                 </Typography>
               </Button>
             ))}
