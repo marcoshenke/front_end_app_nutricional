@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { CompareFoods, Home, Page404, Blog } from './Views';
+import { CompareFoods, Home, Page404 } from './Views';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme, GlobalStylesTheme } from './Styles';
@@ -15,7 +15,6 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/compare-foods" element={<CompareFoods />} />
             <Route path="/page-not-found" element={<Page404 />} />
-            <Route path="/blog" element={<Blog />} />
           </Routes>
         </GlobalStylesTheme>
       </ThemeProvider>

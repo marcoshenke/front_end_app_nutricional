@@ -31,7 +31,6 @@ const NavBar = () => {
   const pages = [
     { menuItem: 'Home', path: '/' },
     { menuItem: 'Comparar alimentos', path: '/compare-foods' },
-    { menuItem: 'Blog', path: '/blog' },
   ];
   const settings = ['Perfil', 'Conta', 'Logout'];
 
