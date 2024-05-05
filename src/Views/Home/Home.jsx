@@ -1,18 +1,10 @@
 import { Box, Typography, colors } from '@mui/material';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 import { MainLayout } from 'Layouts';
 
 import { StyledPaper, Login, Register } from './components';
 
-import { HomeSchema } from './schema';
-
 const Home = () => {
-  const { control, error, handleSubmit } = useForm({
-    resolver: yupResolver(HomeSchema),
-  });
-
   return (
     <MainLayout>
       <StyledPaper>
@@ -41,16 +33,8 @@ const Home = () => {
           >
             <Typography variant="h4">Faça o login ou cadastre-se </Typography>
             <Box display="flex" flexDirection="row" gap={5} mt={2}>
-              <Login
-                control={control}
-                error={error}
-                handleSubmit={handleSubmit}
-              />
-              <Register
-                control={control}
-                error={error}
-                handleSubmit={handleSubmit}
-              />
+              <Login />
+              <Register />
             </Box>
           </Box>
         </Box>

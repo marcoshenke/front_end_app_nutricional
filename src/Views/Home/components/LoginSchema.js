@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const HomeSchema = yup.object({
+export const LoginSchema = yup.object({
   email: yup
     .string()
     .email()
@@ -14,5 +14,4 @@ export const HomeSchema = yup.object({
       'A senha deve conter pelo menos uma letra maiúscula e um símbolo',
     )
     .required('Por favor, insira sua senha'),
-  username: yup.string().required('Forneceça um nome de usuário'),
 });

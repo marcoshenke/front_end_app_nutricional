@@ -1,8 +1,22 @@
 import PropTypes from 'prop-types';
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { SignUpSchema } from './SignUpSchema';
 
-export const Register = ({ control }) => {
+export const Register = () => {
+  const { register, error, handleSubmit } = useForm({
+    resolver: yupResolver(SignUpSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+      username: '',
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <Box
       display="flex"
@@ -10,51 +24,39 @@ export const Register = ({ control }) => {
       justifyContent="flex-start"
       alignItems="center"
       width="100%"
-      gap={1}
     >
       <Typography variant="h5">Cadastrar-se</Typography>
-      <Controller
-        control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            placeholder="E-mail"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            fullWidth
-          />
-        )}
-        name="email"
-      />
-      <Controller
-        control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            placeholder="Senha"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            fullWidth
-          />
-        )}
-        name="password"
-      />
-      <Controller
-        control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            placeholder="Nome de Usuário"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            fullWidth
-          />
-        )}
-        name="username"
-      />
-      <Button variant="contained" color="secondary">
-        cadastrar
-      </Button>
+      <form>
+        <TextField
+          placeholder="E-mail"
+          fullWidth
+          {...register('email')}
+          sx={{ marginY: '5px' }}
+        />
+
+        <TextField
+          placeholder="Senha"
+          {...register('email')}
+          fullWidth
+          sx={{ marginY: '5px' }}
+        />
+
+        <TextField
+          placeholder="Nome de Usuário"
+          {...register('username')}
+          fullWidth
+        />
+
+        <Button
+          variant="contained"
+          color="secondary"
+          type="submit"
+          fullWidth
+          sx={{ marginY: '5px' }}
+        >
+          cadastrar
+        </Button>
+      </form>
     </Box>
   );
 };
