@@ -6,11 +6,10 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
-  Modal,
   TextField,
   Typography,
 } from '@mui/material';
-import { StyledPaperUniversal } from 'components';
+import { StyledPaperUniversal, CustomDialog } from 'components';
 
 import { MainLayout } from 'Layouts';
 import { FoodTable } from './components';
@@ -57,8 +56,6 @@ const CompareFoods = () => {
     'humidity',
   ];
 
-  const openModalOptionsFood = () => {};
-
   return (
     <MainLayout>
       <StyledPaperUniversal>
@@ -96,36 +93,26 @@ const CompareFoods = () => {
             </Button>
           </Box>
         </Box>
-        <Modal open={openOptionsFood} onClose={() => setOpenOptionsFood(false)}>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 400,
-              height: 400,
-              bgcolor: 'background.paper',
-              boxShadow: 24,
-              p: 4,
-              borderRadius: 5,
-              overflow: 'auto',
-            }}
-          >
-            <Typography color="secondary" variant="body1" fontWeight={500}>
-              Você quer comparar por qual informação nutricional?
-            </Typography>
-            <FormGroup>
-              {nutricionalInformation.map((information, index) => (
-                <FormControlLabel
-                  control={<Checkbox />}
-                  key={index}
-                  label={information}
-                />
-              ))}
-            </FormGroup>
-          </Box>
-        </Modal>
+        <CustomDialog
+          isOpen={openOptionsFood}
+          handleClose={() => setOpenOptionsFood(false)}
+          actionButtonName="Enviar"
+          closeButtonName="Fechar"
+          actionButton={() => {}}
+        >
+          <Typography color="secondary" variant="body1" fontWeight={500}>
+            Você quer comparar por qual informação nutricional?
+          </Typography>
+          <FormGroup>
+            {nutricionalInformation.map((information, index) => (
+              <FormControlLabel
+                control={<Checkbox />}
+                key={index}
+                label={information}
+              />
+            ))}
+          </FormGroup>
+        </CustomDialog>
       </StyledPaperUniversal>
     </MainLayout>
   );
