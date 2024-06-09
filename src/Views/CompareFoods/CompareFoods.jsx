@@ -19,41 +19,41 @@ const CompareFoods = () => {
   const mockFood = [
     {
       id: 1,
-      name: 'Feijão',
+      name: 'Arroz Branco Cozido',
     },
     {
       id: 2,
-      name: 'Arroz',
+      name: 'Batata Cozida Sem Casca',
     },
   ];
 
-  const nutricionalInformation = [
-    'protein',
-    'kcal',
-    'kj',
-    'lipids',
-    'cholesterol',
-    'carbohydrate',
-    'dietary_fiber',
-    'sodium',
-    'magnesium',
-    'potassium',
-    'manganese',
-    'phosphor',
-    'vitamin_c',
-    'iron',
-    'calcium',
-    'copper',
-    'zinc',
-    'ashes',
-    'retinol',
-    'thiamine',
-    'riboflavin',
-    'pyridoxine',
-    'niacin',
-    're',
-    'rae',
-    'humidity',
+  const nutricionalInformations = [
+    { nutrionalInfo: 'protein', label: 'proteína' },
+    { nutrionalInfo: 'kcal', label: 'kcal' },
+    { nutrionalInfo: 'kj', label: 'kj' },
+    { nutrionalInfo: 'lipids', label: 'lipídios' },
+    { nutrionalInfo: 'cholesterol', label: 'colesterol' },
+    { nutrionalInfo: 'carbohydrate', label: 'carboidrato' },
+    { nutrionalInfo: 'dietary_fiber', label: 'fibra dietética' },
+    { nutrionalInfo: 'sodium', label: 'sódio' },
+    { nutrionalInfo: 'magnesium', label: 'magnésio' },
+    { nutrionalInfo: 'potassium', label: 'potássio' },
+    { nutrionalInfo: 'manganese', label: 'manganês' },
+    { nutrionalInfo: 'phosphor', label: 'fósforo' },
+    { nutrionalInfo: 'vitamin_c', label: 'vitamina C' },
+    { nutrionalInfo: 'iron', label: 'ferro' },
+    { nutrionalInfo: 'calcium', label: 'cálcio' },
+    { nutrionalInfo: 'copper', label: 'cobre' },
+    { nutrionalInfo: 'zinc', label: 'zinco' },
+    { nutrionalInfo: 'thiamine', label: 'tiamina' },
+    { nutrionalInfo: 'riboflavin', label: 'riboflavina' },
+    { nutrionalInfo: 'retinol', label: 'retinol' },
+    { nutrionalInfo: 'pyridoxine', label: 'piridoxina' },
+    { nutrionalInfo: 're', label: 'RE' },
+    { nutrionalInfo: 'rae', label: 'RAE' },
+    { nutrionalInfo: 'humidity', label: 'umidade' },
+    { nutrionalInfo: 'niacin', label: 'niacina' },
+    { nutrionalInfo: 'ashes', label: 'cinzas' },
   ];
 
   return (
@@ -99,16 +99,14 @@ const CompareFoods = () => {
           actionButtonName="Enviar"
           closeButtonName="Fechar"
           actionButton={() => {}}
+          title="Você quer comparar por qual informação nutricional?"
         >
-          <Typography color="secondary" variant="body1" fontWeight={500}>
-            Você quer comparar por qual informação nutricional?
-          </Typography>
           <FormGroup>
-            {nutricionalInformation.map((information, index) => (
+            {nutricionalInformations.map((information, index) => (
               <FormControlLabel
                 control={<Checkbox />}
                 key={index}
-                label={information}
+                label={information.label}
               />
             ))}
           </FormGroup>
